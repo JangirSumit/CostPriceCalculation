@@ -86,12 +86,12 @@
             this.lblDateFormate.Name = "lblDateFormate";
             this.lblDateFormate.Size = new System.Drawing.Size(112, 13);
             this.lblDateFormate.TabIndex = 7;
-            this.lblDateFormate.Text = "(Format : dd/mm/yyyy)";
+            this.lblDateFormate.Text = "(Format : mm/dd/yyyy)";
             // 
             // txtSellDate
             // 
             this.txtSellDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSellDate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSellDate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtSellDate.Location = new System.Drawing.Point(311, 122);
             this.txtSellDate.Name = "txtSellDate";
             this.txtSellDate.Size = new System.Drawing.Size(200, 24);
@@ -100,7 +100,7 @@
             // txtPricePerShare
             // 
             this.txtPricePerShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPricePerShare.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtPricePerShare.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtPricePerShare.Location = new System.Drawing.Point(311, 72);
             this.txtPricePerShare.Name = "txtPricePerShare";
             this.txtPricePerShare.Size = new System.Drawing.Size(200, 24);
@@ -109,7 +109,7 @@
             // txtSharesSold
             // 
             this.txtSharesSold.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSharesSold.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSharesSold.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtSharesSold.Location = new System.Drawing.Point(311, 23);
             this.txtSharesSold.Name = "txtSharesSold";
             this.txtSharesSold.Size = new System.Drawing.Size(200, 24);
@@ -263,6 +263,7 @@
             this.ClientSize = new System.Drawing.Size(606, 463);
             this.Controls.Add(this.pnlOutputDetails);
             this.Controls.Add(this.pnlInputDetails);
+            this.MaximizeBox = false;
             this.Name = "FormCostPriceCalculation";
             this.Text = "Cost Price Calculation";
             this.pnlInputDetails.ResumeLayout(false);

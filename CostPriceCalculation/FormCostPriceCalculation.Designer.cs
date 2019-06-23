@@ -53,6 +53,7 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCostCalculationMethods = new System.Windows.Forms.ComboBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pnlInputDetails.SuspendLayout();
             this.pnlOutputDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grvDetails)).BeginInit();
@@ -148,9 +149,9 @@
             // 
             this.btnCalculate.BackColor = System.Drawing.Color.Silver;
             this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(291, 11);
+            this.btnCalculate.Location = new System.Drawing.Point(201, 9);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(200, 30);
+            this.btnCalculate.Size = new System.Drawing.Size(139, 30);
             this.btnCalculate.TabIndex = 8;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = false;
@@ -318,6 +319,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.cmbCostCalculationMethods);
             this.panel1.Controls.Add(this.btnCalculate);
             this.panel1.Location = new System.Drawing.Point(13, 201);
@@ -336,9 +338,20 @@
             "Average Cost"});
             this.cmbCostCalculationMethods.Location = new System.Drawing.Point(44, 15);
             this.cmbCostCalculationMethods.Name = "cmbCostCalculationMethods";
-            this.cmbCostCalculationMethods.Size = new System.Drawing.Size(167, 21);
+            this.cmbCostCalculationMethods.Size = new System.Drawing.Size(122, 21);
             this.cmbCostCalculationMethods.TabIndex = 9;
             this.cmbCostCalculationMethods.Text = "Select Method";
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Silver;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(385, 9);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(139, 30);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
             // 
             // FormCostPriceCalculation
             // 
@@ -389,6 +402,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfShares;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.ComboBox cmbCostCalculationMethods;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 

@@ -99,9 +99,9 @@ namespace CostPriceCalculation
 
             foreach (var shareDetail in shareDetails.OrderBy(a => a.PurchaseDate))
             {
-                if (sellDate > shareDetail.PurchaseDate)
+                if (sellDate >= shareDetail.PurchaseDate)
                 {
-                    if (totalSoldShares > shareDetail.NoOfShares)
+                    if (totalSoldShares >= shareDetail.NoOfShares)
                     {
                         totalSoldShares -= shareDetail.NoOfShares;
                         totalPriceOfSoldSharesAgainstPurchaseShares += shareDetail.NoOfShares * shareDetail.PricePerShare;
@@ -135,6 +135,7 @@ namespace CostPriceCalculation
             lblCostPriceofSoldSharesDetail.Text = Convert.ToString(Math.Round(costPriceOfSoldShares, 3));
             lblNumberOfRemainingSharesDetail.Text = Convert.ToString(remainingShares);
             lblGainLossOnSaleDetails.Text = Convert.ToString(Math.Round(gainLoss, 3));
+            lblGainLossOnSaleDetails.ForeColor = gainLoss < 0 ? System.Drawing.Color.Red : System.Drawing.Color.LawnGreen;
         }
 
         private bool ValidateInputFields()

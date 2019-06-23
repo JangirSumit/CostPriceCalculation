@@ -25,26 +25,31 @@ namespace CostPriceCalculation
                 {
                     NoOfShares = 100,
                     PricePerShare = 10,
-                    PurchaseDate = new DateTime(2005, 1, 1)
+                    PurchaseDate = new DateTime(2005, 1, 1),
+                    BuyOrSell = "Buy"
                 });
             shareDetails.Add(
                 new ShareDetail
                 {
                     NoOfShares = 40,
                     PricePerShare = 12,
-                    PurchaseDate = new DateTime(2005, 2, 2)
+                    PurchaseDate = new DateTime(2005, 2, 2),
+                    BuyOrSell = "Buy"
                 });
             shareDetails.Add(
                 new ShareDetail
                 {
                     NoOfShares = 50,
                     PricePerShare = 11,
-                    PurchaseDate = new DateTime(2005, 3, 3)
+                    PurchaseDate = new DateTime(2005, 3, 3),
+                    BuyOrSell = "Buy"
                 });
 
             sharesSold = 0;
             pricePerShare = 0;
             sellDate = new DateTime();
+
+            grvDetails.DataSource = shareDetails;
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -53,10 +58,34 @@ namespace CostPriceCalculation
             {
                 CalculateCostPriceDetails();
                 ShowHideDetailsLabels(true);
+                FillGridData();
             }
         }
 
+        private void FillGridData()
+        {
+            var newShareDetails = shareDetails;
+            newShareDetails.Add(
+                new ShareDetail
+                {
+                    NoOfShares = sharesSold,
+                    PricePerShare = pricePerShare,
+                    PurchaseDate = sellDate,
+                    BuyOrSell = "Sell"
+                });
+
+            grvDetails.DataSource = shareDetails.OrderBy(a => a.PurchaseDate).ToList();
+        }
+
         private void CalculateCostPriceDetails()
+        {
+            if (cmbCostCalculationMethods.SelectedItem.ToString() == "FIFO")
+            {
+                FIFO();
+            }
+        }
+
+        private void FIFO()
         {
             int remainingShares = 0;
             double costPriceOfSoldShares = 0;
@@ -110,19 +139,25 @@ namespace CostPriceCalculation
 
         private bool ValidateInputFields()
         {
+            if (cmbCostCalculationMethods.SelectedItem.ToString() == "Select Method")
+            {
+                MessageBox.Show("Please select Valid Method Type", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (!int.TryParse(txtSharesSold.Text, out sharesSold))
             {
-                MessageBox.Show("Please enter correct Shares sold.");
+                MessageBox.Show("Please enter correct Shares sold.", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return false;
             }
             if (!double.TryParse(txtPricePerShare.Text, out pricePerShare))
             {
-                MessageBox.Show("Please enter correct Price per Share.");
+                MessageBox.Show("Please enter correct Price per Share.", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return false;
             }
             if (!DateTime.TryParse(txtSellDate.Text, out sellDate))
             {
-                MessageBox.Show("Please enter correct Sell Date.");
+                MessageBox.Show("Please enter correct Sell Date.", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -146,5 +181,6 @@ namespace CostPriceCalculation
         public DateTime PurchaseDate { get; set; }
         public int NoOfShares { get; set; }
         public double PricePerShare { get; set; }
+        public string BuyOrSell { get; set; }
     }
 }

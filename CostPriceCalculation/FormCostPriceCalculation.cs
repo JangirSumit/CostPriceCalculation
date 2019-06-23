@@ -20,6 +20,7 @@ namespace CostPriceCalculation
 
         private void InitializeData()
         {
+            shareDetails = new List<ShareDetail>();
             shareDetails.Add(
                 new ShareDetail
                 {
@@ -79,10 +80,30 @@ namespace CostPriceCalculation
 
         private void CalculateCostPriceDetails()
         {
-            if (cmbCostCalculationMethods.SelectedItem.ToString() == "FIFO")
+            switch (cmbCostCalculationMethods.SelectedItem.ToString())
             {
-                FIFO();
+                case "FIFO":
+                    FIFO();
+                    break;
+                case "LIFO":
+                    LIFO();
+                    break;
+                case "Average Cost":
+                    AverageCost();
+                    break;
+                default:
+                    break;
             }
+        }
+
+        private void AverageCost()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LIFO()
+        {
+            throw new NotImplementedException();
         }
 
         private void FIFO()
@@ -174,6 +195,16 @@ namespace CostPriceCalculation
             lblNumberOfRemainingSharesDetail.Visible = show;
             lblGainLossOnSaleDetails.Visible = show;
             lblNumberOfRemainingShares.Visible = show;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ShowHideDetailsLabels(false);
+            InitializeData();
+            UpdateCostPriceDetails(0, 0, 0, 0);
+
+            txtPricePerShare.Text = txtSellDate.Text = txtSharesSold.Text = "";
+            cmbCostCalculationMethods.SelectedIndex = 0;
         }
     }
 

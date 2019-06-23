@@ -98,12 +98,12 @@ namespace CostPriceCalculation
 
         private void AverageCost()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("No Implementation.", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
 
         private void LIFO()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("No Implementation.", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
 
         private void FIFO()
